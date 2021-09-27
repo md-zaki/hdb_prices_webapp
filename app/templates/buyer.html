@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome, Prospective Buyer (User:{{ current_user.username }})</h1>
+<div><p>Click here if you want to use flat price estimator: <b><a href="{{ url_for('flatpriceestimator', username=current_user.username) }}">FLAT PRICE ESTIMATOR</a></b></p></div>
+<div><p>Click here if you want to use town recommender: <b><a href="{{ url_for('townrecommender',username=current_user.username) }}">TOWN RECOMMENDER</a></b></p></div>
+{% endblock %}

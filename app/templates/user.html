@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{ user.username }}</h1>
+    <hr>
+    <h1>History of searches:</h1>
+    <p>
+    <h2><u>Resale Price Predictor History:</u></h2>
+    {% for ri in user.resaleInput %}
+    <div><p>Town: {{ ri.town }}</p></div>
+    <div><p>Flat Type: {{ ri.flatType }}</p></div>
+    <div><p>Original Price: {{ ri.ogprice }}</p></div>
+    <div><p>Floor Area: {{ ri.floorArea }}</p></div>
+    <div><p>Storey: {{ ri.storey }}</p></div>
+    <div><p>Flat Age: {{ ri.age }}</p></div>
+    <p><a href="{{ url_for('delete',username=current_user.username, id = ri.id) }}">Delete Entry</a></p>
+    <hr>
+    {% endfor %}
+    </p>
+
+    
+{% endblock %}

@@ -1,0 +1,63 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Pied Piper</title>
+        {% else %}
+        <title>Pied Piper</title>
+        {% endif %}
+        <style>
+            body {/*background-color: #272838;*/
+               /* mix-blend-mode: hard-light;*/
+                text-align: center;
+               /* color:#FFFFFF;
+                font-family: Playfair Display;
+                font-style: normal;*/}
+            a:link {
+            color: #FFFFFF;
+            background-color: rgb(0, 129, 129);
+            text-decoration: none;
+            }
+
+            a:visited {
+            color: #FFFFFF;
+            background-color: rgb(0, 129, 129);
+            text-decoration: none;
+            }
+
+            a:hover {
+            color: rgb(0, 129, 129);
+            background-color: transparent;
+            text-decoration: underline;
+            }
+
+            a:active {
+            color: rgb(0, 129, 129);
+            background-color: transparent;
+            text-decoration: underline;
+}
+        </style>
+    </head>
+    <body>
+        <div>
+            Pied Piper:
+            <a href="{{ url_for('index') }}">Home</a>
+            {% if current_user.is_anonymous %}
+            <a href="{{ url_for('login') }}">Login</a>
+            {% else %}
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>

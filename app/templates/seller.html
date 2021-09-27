@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome, Prospective Seller (User:{{ current_user.username }})</h1>
+<div><p>Click here if you want to use flat resale price estimator: <b><a href="{{ url_for('resalepriceestimator', username=current_user.username) }}">RESALE PRICE ESTIMATOR</a></b></p></div>
+{% endblock %}

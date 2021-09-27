@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Resale Price Estimator (User: {{ user.username }})</h1>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.town.label }}<br>
+            {{ form.town(size=32) }}<br>
+            {% for error in form.town.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.flatType.label }}<br>
+            {{ form.flatType(size=10) }}<br>
+            {% for error in form.flatType.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ogprice.label }}<br>
+            {{ form.ogprice(size=32) }}<br>
+            {% for error in form.ogprice.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.floorArea.label }}<br>
+            {{ form.floorArea(size=32) }}<br>
+            {% for error in form.floorArea.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.storey.label }}<br>
+            {{ form.storey(size=10) }}<br>
+            {% for error in form.storey.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.age.label }}<br>
+            {{ form.age(size=10) }}<br>
+            {% for error in form.age.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

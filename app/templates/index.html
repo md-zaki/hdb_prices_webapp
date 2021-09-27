@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    <div><p>Click here if you're a prospective buyer: <b><a href="{{ url_for('buyer',username=current_user.username) }}">BUYER</a></b></p></div>
+    <div><p>Click here if you're a prospective buyer: <b><a href="{{ url_for('seller',username=current_user.username) }}">SELLER</a></b></p></div>
+{% endblock %}
+
